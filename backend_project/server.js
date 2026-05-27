@@ -16,7 +16,7 @@ app.post('/login',login);
 app.post('/customer',insertCustomer)
 app.post('/services',insertServices)
 app.post('/insertinvoices',insertinvoice)
-app.get('/selectinvoices',selectInvoices)
+app.get('/select',selectInvoices)
 app.put('/updateinvoices/:invoiceid',updateinvoices)
 app.delete('/deleteinvoices/:invoiceid',deleteInvoices)
 

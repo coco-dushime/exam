@@ -7,6 +7,9 @@ import Dashboard from './Dashboard'
 import CustomerForm from './Customer'
 import ServiceForm from './Service'
 import Notfound from './Notfound'
+import Invoice from './Invoice'
+import InvoiceList from './InvoiceList'
+
 
 function AppRouter() {
   return (
@@ -19,6 +22,8 @@ function AppRouter() {
        <Route path='/customer' element={<CustomerForm/>}/>
        <Route path='/service' element={<ServiceForm/>}/>
        <Route path='*' element={<Notfound/>}/>
+       <Route path='/invoice' element={<Invoice/>}/>
+       <Route path='/invoicelist' element={<InvoiceList/>}/>
     </Routes>
   )
 }

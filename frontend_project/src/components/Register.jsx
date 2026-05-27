@@ -29,15 +29,16 @@ function Register() {
     setData({...data,[e.target.name]:e.target.value})
   }
   return (
-    <div className="flex items-center justify-center bg-gray-200 min-h-screen">
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
 
-      <div className="bg-white w-90 p-5 rounded shadow">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white w-full max-w-xl p-8 rounded-2xl shadow-xl"
+      >
 
-        <h1 className="mt-5 text-gray-500 font-bold text-3xl flex justify-center">
+        <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
           Registration Form
         </h1>
-
-        <form className="grid grid-cols-1 gap-3 mt-5" onSubmit={handleSubmit}>
 
           <label className="text-gray-500">Name</label>
 
@@ -45,7 +46,7 @@ function Register() {
             type="text"
             name="name"
             placeholder="your name"
-            className="w-full p-2 rounded focus:ring focus:ring-blue-500 bg-gray-200 outline-none"
+             className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
             value={data.name}
             onChange={handleChange}
             required
@@ -57,7 +58,7 @@ function Register() {
             type="password"
             name="password"
             placeholder="*******"
-            className="w-full p-2 rounded focus:ring focus:ring-blue-500 bg-gray-200 outline-none"
+             className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
             value={data.password}
             onChange={handleChange}
             required
@@ -65,7 +66,7 @@ function Register() {
 
           <button
             type="submit"
-            className="bg-blue-600 mt-2 p-2 rounded text-white hover:bg-blue-800"
+            className="w-full mt-3 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold duration-300"
           >
             Register
           </button>
@@ -81,7 +82,7 @@ function Register() {
         </form>
       </div>
 
-    </div>
+    
   )
 }
 
