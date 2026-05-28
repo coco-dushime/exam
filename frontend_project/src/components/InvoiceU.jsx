@@ -44,12 +44,14 @@ function InvoiceU({ onUpdate }) {
           `http://localhost:5000/selectinvoices/${invoiceid}`
         );
 
+        const invoice = res.data.data[0]
+
         // FIXED HERE
         setData({
-          TotalCost: res.data?.TotalCost || '',
-          PaidAmount: res.data?.PaidAmount || '',
-          Balance: res.data?.Balance || '',
-          PaymentMonth: res.data?.PaymentMonth || ''
+          TotalCost: invoice?.TotalCost || '',
+          PaidAmount: invoice?.PaidAmount || '',
+          Balance: invoice?.Balance || '',
+          PaymentMonth: invoice?.PaymentMonth || ''
         });
 
       } catch (err) {
@@ -63,33 +65,37 @@ function InvoiceU({ onUpdate }) {
 
   }, [invoiceid]);
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
+  try {
 
-      await axios.put(
-        `http://localhost:5000/updateinvoices/${invoiceid}`,
-        data
-      );
+    console.log(data);
 
-      alert('Updated successfully');
-
-      if (onUpdate) {
-        onUpdate();
+    const res = await axios.put(
+      `http://localhost:5000/updateinvoices/${invoiceid}`,
+      {
+        TotalCost: data.TotalCost,
+        PaidAmount: data.PaidAmount,
+        Balance: data.Balance,
+        PaymentMonth: data.PaymentMonth
       }
+    );
 
-      navigate('/invoicelist');
+    console.log(res.data);
 
-    } catch (err) {
+    alert('Updated successfully');
 
-      console.log(err);
-      alert('Update failed');
+    navigate('/invoicelist');
 
-    }
-  };
+  } catch (err) {
 
+    console.log(err.response?.data || err.message);
+
+    alert('Update failed');
+  }
+};
   return (
 
     <div className="min-h-screen bg-gray-100 p-5">

@@ -45,7 +45,7 @@ function AppRouter() {
        <Route path='/invoice' element={<Invoice/>}/>
        <Route path='/invoicelist' element={<InvoiceList/>}/>
        <Route path='/addinvoice' element={<InvoiceI/>}/>
-       <Route path='/update/:id' element={<InvoiceU onUpdate={fetchUser}/>}/>
+       <Route path='/update/:invoiceid' element={<InvoiceU onUpdate={fetchUser}/>}/>
     </Routes>
   )
 }
