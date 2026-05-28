@@ -11,6 +11,7 @@ import Notfound from './Notfound'
 import Invoice from './Invoice'
 import InvoiceList from './InvoiceList'
 import InvoiceU from './InvoiceU'
+import InvoiceI from './InvoiceI'
 
 
 function AppRouter() {
@@ -43,6 +44,7 @@ function AppRouter() {
        <Route path='*' element={<Notfound/>}/>
        <Route path='/invoice' element={<Invoice/>}/>
        <Route path='/invoicelist' element={<InvoiceList/>}/>
+       <Route path='/addinvoice' element={<InvoiceI/>}/>
        <Route path='/update/:id' element={<InvoiceU onUpdate={fetchUser}/>}/>
     </Routes>
   )

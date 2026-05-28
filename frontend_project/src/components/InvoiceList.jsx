@@ -46,7 +46,7 @@ function InvoiceList() {
           Invoice Records
         </h1>
         <div className="flex justify-end m-4">
-       <Link to='/invoice' 
+       <Link to='/addinvoice' 
        className="bg-blue-600 w-27 mr-3 p-2 rounded-l">
         CreateNew</Link>
        </div>
