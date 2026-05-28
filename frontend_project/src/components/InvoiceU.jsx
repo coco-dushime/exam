@@ -26,6 +26,7 @@ function InvoiceU({ onUpdate }) {
 
     // Auto calculate balance
     if (name === "TotalCost" || name === "PaidAmount") {
+
       updatedData.Balance =
         Number(updatedData.TotalCost) - Number(updatedData.PaidAmount);
     }
@@ -43,12 +44,13 @@ function InvoiceU({ onUpdate }) {
           `http://localhost:5000/selectinvoices/${invoiceid}`
         );
 
+        // FIXED HERE
         setData({
-           TotalCost: res.data.TotalCost || '',
-           PaidAmount: res.data.PaidAmount || '',
-           Balance: res.data.Balance || '',
-           PaymentMonth: res.data.PaymentMonth || ''
-         });
+          TotalCost: res.data?.TotalCost || '',
+          PaidAmount: res.data?.PaidAmount || '',
+          Balance: res.data?.Balance || '',
+          PaymentMonth: res.data?.PaymentMonth || ''
+        });
 
       } catch (err) {
 
