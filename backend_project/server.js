@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors'
 import { login, register } from "./user.js";
 import { insertCustomer } from "./customers.js";
-import { deleteInvoices, insertinvoice, selectInvoices, updateinvoices } from "./invoice.js";
+import { deleteInvoices, insertinvoice, selectInvoice, selectInvoices, updateinvoices } from "./invoice.js";
 import { insertServices } from "./services.js";
 
 const app= express()
@@ -17,6 +17,7 @@ app.post('/customer',insertCustomer)
 app.post('/services',insertServices)
 app.post('/insertinvoices',insertinvoice)
 app.get('/select',selectInvoices)
+app.get('/selectinvoices/:invoiceid',selectInvoice)
 app.put('/updateinvoices/:invoiceid',updateinvoices)
 app.delete('/deleteinvoices/:invoiceid',deleteInvoices)
 

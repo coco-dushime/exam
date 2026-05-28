@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 function Invoice() {
 
@@ -9,6 +10,8 @@ function Invoice() {
     Balance: '',
     PaymentMonth: ''
   })
+
+  const {invoiceid} = useParams();
 
   const [payments, setPayments] = useState([])
   const [editId, setEditId] = useState(null)
@@ -41,7 +44,7 @@ function Invoice() {
     try {
 
       const res = await axios.get(
-        'http://localhost:5000/selectinvoices'
+        'http://localhost:5000/select'
       )
 
       setPayments(
@@ -134,7 +137,7 @@ function Invoice() {
       PaymentMonth: item.PaymentMonth?.split('T')[0]
     })
 
-    setEditId(item.id)
+    setEditId(item.invoiceid)
   }
 
   return (

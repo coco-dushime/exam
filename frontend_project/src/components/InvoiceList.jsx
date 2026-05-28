@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function InvoiceList() {
 
@@ -35,7 +35,7 @@ function InvoiceList() {
 
 
   const handleEdit=(invoiceid)=>{
-    navigate('/update')
+    navigate(`/update/${invoiceid}`)
   }
   return (
     <div className='min-h-screen bg-gray-100 p-8'>
@@ -45,6 +45,11 @@ function InvoiceList() {
         <h1 className='text-3xl font-bold text-center mb-6 text-green-700'>
           Invoice Records
         </h1>
+        <div className="flex justify-end m-4">
+       <Link to='/invoice' 
+       className="bg-blue-600 w-27 mr-3 p-2 rounded-l">
+        CreateNew</Link>
+       </div>
 
         <table className='w-full border-collapse'>
 

@@ -53,6 +53,23 @@ export const selectInvoices=(req,res)=>{
     })
 } 
 
+
+export const selectInvoice=(req,res)=>{
+    const {invoiceid} = req.params;
+    const sql='select * from invoices where invoiceid=?';
+    db.query(sql,[invoiceid],(err,result)=>{
+        if(err){
+            console.log('fail',err)
+            res.status(500).json({message:'internal server error'})
+         }else{
+            res.json({
+                message:'selected ',
+                data:result
+            })
+         }
+    })
+} 
+
 export const deleteInvoices=(req,res)=>{
     const {invoiceid}=req.params;
 

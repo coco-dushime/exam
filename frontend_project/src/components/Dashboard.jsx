@@ -8,7 +8,7 @@ export default function Dashboard() {
          <nav className="grid gap-4 ml-5 ">
                 <Link to='/' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl">Home</Link>
                 <Link to='/customer' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl">Customers</Link>
-                <Link to='/invoice' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl"> Invoices</Link>
+                <Link to='/invoicelist' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl"> Invoices</Link>
                 <Link to='/service' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl">Services</Link>
                 <Link to='/report' className="hover:bg-gray-400 rounded p-2 text-white flex gap-3 text-xl">Reports</Link>
                 </nav>
