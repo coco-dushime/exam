@@ -17,12 +17,9 @@ function InvoiceU({ onUpdate }) {
 
   const handleChange = (e) => {
 
-    const { name, value } = e.target;
-
-    let updatedData = {
-      ...data,
-      [name]: value
-    };
+    setData({
+      ...data,[e.target.name]:e.target.value
+    })
 
     // Auto calculate balance
     if (name === "TotalCost" || name === "PaidAmount") {
